@@ -101,3 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+[[ -s /home/kolmone/.autojump/etc/profile.d/autojump.sh ]] && source /home/kolmone/.autojump/etc/profile.d/autojump.sh
