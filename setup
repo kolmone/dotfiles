@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Parameter order as in ln, $1 is target and $2 is the link name
+lndotfile() {
+  if [ -f $2 ]; then
+    rm $2
+  fi
+  ln -s -- "$1" "$2"
+}
+
+lndotfile "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
+lndotfile "$HOME/.dotfiles/.aliases-zsh" "$HOME/.aliases-zsh"
+lndotfile "$HOME/.dotfiles/.functions-zsh" "$HOME/.functions-zsh"
