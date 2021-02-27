@@ -36,5 +36,5 @@ function mvlink() {
       *) target="$(cd -- "$(dirname -- "$target")" && pwd)/${target##*/}"
     esac
   esac
-  ln -s -- "$target" "$original"
+  ln -sr -- "$target" "$original"
 }
