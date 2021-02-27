@@ -26,15 +26,9 @@ function mvlink() {
     return 1
   fi
 
-  original="$original"
-  target="$target"
+  target="`realpath "$target"`"
   mv -- "$original" "$target"
-  case "$original" in
-    */*) 
-    case "$target" in
-      /*) :;;
-      *) target="$(cd -- "$(dirname -- "$target")" && pwd)/${target##*/}"
-    esac
-  esac
+  #echo "mv -- $original $target"
   ln -sr -- "$target" "$original"
+  #echo "ln -sr -- $target $original"
 }
