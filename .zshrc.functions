@@ -32,3 +32,8 @@ function mvlink() {
   ln -sr -- "$target" "$original"
   #echo "ln -sr -- $target $original"
 }
+
+# Use fd to generate the list for fzf directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
+}

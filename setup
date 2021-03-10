@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Parameter order as in ln, $1 is target and $2 is the link name
 lndotfile() {
@@ -9,5 +9,5 @@ lndotfile() {
 }
 
 lndotfile "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
-lndotfile "$HOME/.dotfiles/.aliases-zsh" "$HOME/.aliases-zsh"
-lndotfile "$HOME/.dotfiles/.functions-zsh" "$HOME/.functions-zsh"
+lndotfile "$HOME/.dotfiles/.zshrc.aliases" "$HOME/.zshrc.aliases"
+lndotfile "$HOME/.dotfiles/.zshrc.functions" "$HOME/.zshrc.functions"
