@@ -22,6 +22,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 lndotfile "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 lndotfile "$HOME/.dotfiles/.zshrc.aliases" "$HOME/.zshrc.aliases"
 lndotfile "$HOME/.dotfiles/.zshrc.functions" "$HOME/.zshrc.functions"
+lndotfile "$HOME/.dotfiles/.p10k.zsh" "$HOME/.p10k.zsh"
 
 # Install zoxide
 curl -s https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | grep "x86_64-unknown-linux-musl" | xargs -n 1 curl -LJO
