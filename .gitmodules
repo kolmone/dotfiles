@@ -4,6 +4,3 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf
-[submodule "autojump"]
-	path = autojump
-	url = https://github.com/wting/autojump
