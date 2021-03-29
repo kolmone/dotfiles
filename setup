@@ -12,6 +12,12 @@ lndotfile() {
 git submodule init
 git submodule update
 
+# Install oh-my-zsh non-intrusively
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+
+# Install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 # Link dotfiles
 lndotfile "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 lndotfile "$HOME/.dotfiles/.zshrc.aliases" "$HOME/.zshrc.aliases"
