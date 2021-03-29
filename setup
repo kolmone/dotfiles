@@ -11,3 +11,10 @@ lndotfile() {
 lndotfile "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 lndotfile "$HOME/.dotfiles/.zshrc.aliases" "$HOME/.zshrc.aliases"
 lndotfile "$HOME/.dotfiles/.zshrc.functions" "$HOME/.zshrc.functions"
+
+# zoxide
+curl -s https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | grep "x86_64-unknown-linux-musl" | xargs -n 1 curl -LJO
+mkdir -p "$HOME/.local/bin"
+mv "zoxide-x86_64-unknown-linux-musl" "$HOME/.local/bin/zoxide"
+chmod +x "$HOME/.local/bin/zoxide"
+

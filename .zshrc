@@ -104,6 +104,6 @@ source $HOME/.zshrc.aliases
 source $HOME/.zshrc.functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh --cmd j)"
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-[[ -s /home/kolmone/.autojump/etc/profile.d/autojump.sh ]] && source /home/kolmone/.autojump/etc/profile.d/autojump.sh
