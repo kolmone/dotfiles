@@ -2,6 +2,7 @@
 
 # Location of the script i.e. of the dotfiles themselves
 dotfile_path=${0:a:h}
+echo "Dotfile path is: $dotfile_path"
 
 # Parameter order as in ln, $1 is target and $2 is the link name
 lndotfile() {
