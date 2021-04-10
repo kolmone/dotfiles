@@ -27,6 +27,7 @@ lndotfile "$dotfile_path/.zshrc" "$HOME/.zshrc"
 lndotfile "$dotfile_path/.zshrc.aliases" "$HOME/.zshrc.aliases"
 lndotfile "$dotfile_path/.zshrc.functions" "$HOME/.zshrc.functions"
 lndotfile "$dotfile_path/.p10k.zsh" "$HOME/.p10k.zsh"
+lndotfile "$dotfile_path/.fzf.zsh" "$HOME/.fzf.zsh"
 
 # Install zoxide
 curl -s https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | grep "x86_64-unknown-linux-musl" | xargs -n 1 curl -LJO
@@ -36,4 +37,4 @@ chmod +x "$HOME/.local/bin/zoxide"
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-"$HOME/.fzf/install" --key-bindings --completion --no-update-rc
+"$HOME/.fzf/install" --bin
