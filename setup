@@ -38,9 +38,9 @@ source $HOME/.cargo/env
 # chmod +x install_zoxide.sh
 # ./install_zoxide.sh
 # rm install_zoxide.sh
-curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
+cargo install zoxide
 
-# Install fd-find (faster find)
+# Install fd-find
 cargo install fd-find
 
 # Install fzf
