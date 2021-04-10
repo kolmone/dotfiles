@@ -20,20 +20,20 @@ git submodule update
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
 # Install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Link dotfiles
-lndotfile "$dotfile_path/.zshrc" "~/.zshrc"
-lndotfile "$dotfile_path/.zshrc.aliases" "~/.zshrc.aliases"
-lndotfile "$dotfile_path/.zshrc.functions" "~/.zshrc.functions"
-lndotfile "$dotfile_path/.p10k.zsh" "~/.p10k.zsh"
+lndotfile "$dotfile_path/.zshrc" "$HOME/.zshrc"
+lndotfile "$dotfile_path/.zshrc.aliases" "$HOME/.zshrc.aliases"
+lndotfile "$dotfile_path/.zshrc.functions" "$HOME/.zshrc.functions"
+lndotfile "$dotfile_path/.p10k.zsh" "$HOME/.p10k.zsh"
 
 # Install zoxide
 curl -s https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | grep "x86_64-unknown-linux-musl" | xargs -n 1 curl -LJO
-mkdir -p "~/.local/bin"
-mv "zoxide-x86_64-unknown-linux-musl" "~/.local/bin/zoxide"
-chmod +x "~/.local/bin/zoxide"
+mkdir -p "$HOME/.local/bin"
+mv "zoxide-x86_64-unknown-linux-musl" "$HOME/.local/bin/zoxide"
+chmod +x "$HOME/.local/bin/zoxide"
 
 # Install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+"$HOME/.fzf/install"
