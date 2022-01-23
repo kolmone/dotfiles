@@ -118,3 +118,15 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# unbind digit-arguments
+bindkey -r "^[0"
+bindkey -r "^[1"
+bindkey -r "^[2"
+bindkey -r "^[3"
+bindkey -r "^[4"
+bindkey -r "^[5"
+bindkey -r "^[6"
+bindkey -r "^[7"
+bindkey -r "^[8"
+bindkey -r "^[9"
