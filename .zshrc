@@ -107,9 +107,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+ALIASFILE=$HOME/.zshrc.aliases
+LOCAL_ALIASFILE=$HOME/.zshrc.aliases.local
 source $HOME/.zshrc.aliases
 source $HOME/.zshrc.functions
+
+# Local alias/function files, not synced with git
+[ -f $HOME/.zshrc.aliases.local ] && source $HOME/.zshrc.aliases.local
+[ -f $HOME/.zshrc.functions.local ] && source $HOME/.zshrc.functions.local
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh --cmd j)"

@@ -1,2 +1,7 @@
 alias ls=lsd
 alias st="git status"
+alias screen=byobu
+alias python=python3
+alias pip=pip3
+alias ll='ls -l'
+alias lla='ls -la'

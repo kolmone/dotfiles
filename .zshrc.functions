@@ -37,3 +37,25 @@ function mvlink() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
 }
+
+# Add global alias
+function add_alias() {
+    if [[ -z $1 || -z $2 || $# -gt 2 ]]; then
+        echo usage:
+        echo "\t\$$0 ll 'ls -l'"
+    else
+        echo "alias $1='$2'" >> $ALIASFILE
+        echo "alias ADDED to $ALIASFILE"
+    fi
+}
+
+# Add local alias
+function add_local_alias() {
+    if [[ -z $1 || -z $2 || $# -gt 2 ]]; then
+        echo usage:
+        echo "\t\$$0 ll 'ls -l'"
+    else
+        echo "alias $1='$2'" >> $LOCAL_ALIASFILE
+        echo "alias ADDED to $LOCAL_ALIASFILE"
+    fi
+}
