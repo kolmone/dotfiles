@@ -40,8 +40,9 @@ source $HOME/.cargo/env
 # rm install_zoxide.sh
 cargo install zoxide
 
-# Install fd-find
+# Install other utilities
 cargo install fd-find
+cargo install lsd
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
