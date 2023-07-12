@@ -1,10 +1,8 @@
 #!/bin/zsh
 
-docker container run -e TERM -e COLORTERM --rm -it alpine sh -uec '
+docker container run -v .:/dotfiles -e TERM -e COLORTERM --rm -it alpine sh -uec '
   apk update
   apk add git zsh curl bash perl gcc make libc-dev
-  cd ~
-  git clone --depth=1 https://github.com/kolmone/dotfiles.git
-  cd dotfiles
+  cd /dotfiles
   ./setup
   exec zsh'
