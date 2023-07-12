@@ -99,6 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -107,22 +110,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-ALIASFILE=$HOME/.zshrc.aliases
-LOCAL_ALIASFILE=$HOME/.zshrc.aliases.local
 source $HOME/.zshrc.aliases
 source $HOME/.zshrc.functions
 
-# Local alias/function files, not synced with git
+# Local files, not synced with git
 [ -f $HOME/.zshrc.aliases.local ] && source $HOME/.zshrc.aliases.local
 [ -f $HOME/.zshrc.functions.local ] && source $HOME/.zshrc.functions.local
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh --cmd j)"
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # unbind digit-arguments
 bindkey -r "^[0"
