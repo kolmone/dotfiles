@@ -114,7 +114,12 @@ source $HOME/.zshrc.functions
 [ -f $HOME/.zshrc.functions.local ] && source $HOME/.zshrc.functions.local
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
+fi
+source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd j)"
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
