@@ -135,3 +135,7 @@ bindkey -r "^[6"
 bindkey -r "^[7"
 bindkey -r "^[8"
 bindkey -r "^[9"
+
+# disable bell
+unsetopt BEEP
+
