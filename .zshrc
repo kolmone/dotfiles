@@ -8,6 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/.local/bin:$PATH"
 
+# Make sure rust binaries are in path
+. $HOME/.cargo/env
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
