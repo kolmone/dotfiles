@@ -32,9 +32,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # Stow dotfiles
 # --adopt to replace existing files
-for dir in $dotfile_path/stow/*/; do
+for dir in $dotfile_path/*/; do
   echo ${dir:t}
-  stow -v -R --adopt --dotfiles -d $dotfile_path/stow -t ~ ${dir:t};
+  stow -v -R --adopt --dotfiles -d $dotfile_path -t ~ ${dir:t};
 done
 
 # Restore repository state since --adopt may overwrite files
