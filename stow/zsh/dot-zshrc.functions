@@ -1,0 +1,61 @@
+# Prints error message in RED
+error() {
+  echo "\033[1;31m$@\033[0m"
+}
+
+# Moves a file or directory from source $1 to target $2
+# Creates a link point from old location to the new one
+function mvlink() {
+  original="$1"
+  target="$2"
+  
+  # Quit if original file/directory is already symlink
+  if [[ -L "$original" ]]; then
+    error "$original is a symlink, aborting  !"
+    return 1
+  fi
+
+  # If target is a directory, move inside it instead
+  if [[ -d "$target" ]]; then
+    target="$target/${original##*/}"
+  fi
+
+  # Quit if target exists
+  if [[ -a "$target" ]]; then
+    error "$target already exists, aborting!"
+    return 1
+  fi
+
+  target="`realpath "$target"`"
+  mv -- "$original" "$target"
+  #echo "mv -- $original $target"
+  ln -sr -- "$target" "$original"
+  #echo "ln -sr -- $target $original"
+}
+
+# Use fd to generate the list for fzf directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --no-ignore --exclude ".git" . "$1"
+}
+
+# Add global alias
+function add_alias() {
+    if [[ -z $1 || -z $2 || $# -gt 2 ]]; then
+        echo usage:
+        echo "\t\$$0 ll 'ls -l'"
+    else
+        echo "alias $1='$2'" >> $ALIASFILE
+        echo "alias ADDED to $ALIASFILE"
+    fi
+}
+
+# Add local alias
+function add_local_alias() {
+    if [[ -z $1 || -z $2 || $# -gt 2 ]]; then
+        echo usage:
+        echo "\t\$$0 ll 'ls -l'"
+    else
+        echo "alias $1='$2'" >> $LOCAL_ALIASFILE
+        echo "alias ADDED to $LOCAL_ALIASFILE"
+    fi
+}
