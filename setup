@@ -49,7 +49,12 @@ git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
 "$HOME/.fzf/install" --bin
 
 # Stow dotfiles
+# --adopt to replace existing files
 for dir in $dotfile_path/stow/*/; do
   echo ${dir:t}
-  stow -v -R --dotfiles -d $dotfile_path/stow -t ~ ${dir:t};
+  stow -v -R --adopt --dotfiles -d $dotfile_path/stow -t ~ ${dir:t};
 done
+
+# Restore repository state since --adopt may overwrite files
+git restore .
+
