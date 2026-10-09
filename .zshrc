@@ -8,6 +8,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/.local/bin:$PATH"
 
+# Make sure rust binaries are in path
+. $HOME/.cargo/env
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -115,6 +118,10 @@ source $HOME/.zshrc.functions
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
 # Set up fzf key bindings and fuzzy completion
+# PATH update is needed if running with local fzf installation
+if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
+fi
 source <(fzf --zsh)
 
 # Set up zoxide with command 'j'
@@ -135,3 +142,6 @@ bindkey -r "^[8"
 bindkey -r "^[9"
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/kolmone.omp.json)"
+
+# disable bell
+unsetopt BEEP
