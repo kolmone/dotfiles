@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+podman container run -v .:/dotfiles -e TERM -e COLORTERM --rm -it opensuse/tumbleweed sh -uec '
+  zypper dup -y
+  zypper in -y zsh sudo
+  cd /dotfiles
+  ./setup_tumbleweed
+  exec zsh'

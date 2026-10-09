@@ -7,8 +7,14 @@
 dotfile_path=${0:a:h}
 echo "Dotfile path is: $dotfile_path"
 
+# Create user bin directory if it doesn't exist
+mkdir -p $HOME/.local/bin
+
+# Install utilities
+sudo zypper in -y zoxide lsd fd fzf git curl stow unzip
+
 # Install oh-my-posh
-curl -s https://ohmyposh.dev/install.sh | bash -s
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d $HOME/.local/bin
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
@@ -19,9 +25,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Install rust/cargo locally, -y for default options
 # curl https://sh.rustup.rs -sSf | sh -s -- -y 
 # source $HOME/.cargo/env
-
-# Install utilities
-sudo zypper in zoxide lsd fd fzf -y
 
 # Install fzf
 #git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
