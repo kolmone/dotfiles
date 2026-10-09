@@ -114,7 +114,10 @@ source $HOME/.zshrc.functions
 [ -f $HOME/.zshrc.functions.local ] && source $HOME/.zshrc.functions.local
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# Set up zoxide with command 'j'
 eval "$(zoxide init zsh --cmd j)"
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'

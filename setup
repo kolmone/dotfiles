@@ -4,14 +4,6 @@
 dotfile_path=${0:a:h}
 echo "Dotfile path is: $dotfile_path"
 
-# Parameter order as in ln, $1 is target and $2 is the link name
-lndotfile() {
-  if [ -f $2 ]; then
-    rm $2
-  fi
-  ln -s -- "$1" "$2"
-}
-
 # Get submodules
 git submodule init
 git submodule update
@@ -21,13 +13,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Link dotfiles
-#lndotfile "$dotfile_path/.zshrc" "$HOME/.zshrc"
-#lndotfile "$dotfile_path/.zshrc.aliases" "$HOME/.zshrc.aliases"
-#lndotfile "$dotfile_path/.zshrc.functions" "$HOME/.zshrc.functions"
-#lndotfile "$dotfile_path/.p10k.zsh" "$HOME/.p10k.zsh"
-#lndotfile "$dotfile_path/.fzf.zsh" "$HOME/.fzf.zsh"
 
 # Install rust/cargo locally, -y for default options
 curl https://sh.rustup.rs -sSf | sh -s -- -y 
