@@ -4,5 +4,5 @@ podman container run -v .:/dotfiles -e TERM -e COLORTERM --rm -it opensuse/tumbl
   zypper dup -y
   zypper in -y git zsh curl bash perl gcc make stow
   cd /dotfiles
-  ./setup
+  ./setup_tumbleweed
   exec zsh'

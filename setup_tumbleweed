@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+# Tumbleweed version of the setup script
+# Life is easier when we have sudo and the utilities we want to use are in official repos
+
+# Location of the script i.e. of the dotfiles themselves
+dotfile_path=${0:a:h}
+echo "Dotfile path is: $dotfile_path"
+
+# Install oh-my-posh
+curl -s https://ohmyposh.dev/install.sh | bash -s
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+
+# Install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Install rust/cargo locally, -y for default options
+# curl https://sh.rustup.rs -sSf | sh -s -- -y 
+# source $HOME/.cargo/env
+
+# Install utilities
+sudo zypper in zoxide lsd fd fzf -y
+
+# Install fzf
+#git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+#"$HOME/.fzf/install" --bin
+
+# Stow dotfiles
+for dir in $dotfile_path/stow/*/; do
+  echo ${dir:t}
+  stow -v -R --dotfiles -d $dotfile_path/stow -t ~ ${dir:t};
+done
