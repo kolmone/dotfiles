@@ -69,5 +69,7 @@
     "template": "\ue285 ",
     "type": "text"
   },
+
+  "shell_integration": true,
   "version": 4
 }
