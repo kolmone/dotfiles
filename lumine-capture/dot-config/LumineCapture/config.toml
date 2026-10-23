@@ -15,12 +15,20 @@
 # Useful, important options will be moved to the GUI later on.
 
 [general]
-# by default both pin and copy still saves screenshot in the folder
-save_always = false
-# what to do with screenshot after finishing capture without an explicit bind
-# like pressing enter or double click on the selection zone
-# c (copy), p (pin), s(save), in any order
-accept = "c"
+# What happens to every screenshot, on top of what you choose in the editor:
+# e.g. with to = "s" copying also saves the file.
+# Finishing without an explicit choice (Enter, a double click on the selection,
+# releasing the mouse in -r, -f and -w) does only this. Overridden by -t.
+#
+# The same letters as -t, in any order:
+#   c  copy to the clipboard
+#   p  pin to the screen
+#   s  save to the screenshots folder
+#   o  write the PNG to stdout
+#   r  copy the text to the primary selection (middle click), only with -r ocr
+#
+# -r ocr uses c, r and o for its text and ignores p and s.
+to = "c"
 
 # How does the screenshot with editing gui appear :
 # window  a fullscreen window: can be sent to another desktop or minimized (Recommended)

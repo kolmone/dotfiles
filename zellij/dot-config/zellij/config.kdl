@@ -275,6 +275,7 @@ web_client {
     font "monospace"
 }
 
+default_layout "tabs-up" // Compact layout with tabs up and keybind tooltips enabled
 theme "kanagawa-custom"
 
 ///////////////////////////////////////////////////////////////////////////
