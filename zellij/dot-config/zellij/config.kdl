@@ -87,8 +87,8 @@ keybinds clear-defaults=true {
         bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
-        bind "[" { ScrollToPreviousPrompt; }
-        bind "]" { ScrollToNextPrompt; }
+        bind "Ctrl Up" { ScrollToPreviousPrompt; }
+        bind "Ctrl Down" { ScrollToNextPrompt; }
         bind "m" { SelectCommandAtScrollPosition; }
         bind "c" { CopyLastCommandOutput; SwitchToMode "Normal"; }
         // uncomment this and adjust key if using copy_on_select=false
@@ -103,8 +103,8 @@ keybinds clear-defaults=true {
         bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
-        bind "[" { ScrollToPreviousPrompt; }
-        bind "]" { ScrollToNextPrompt; }
+        bind "Ctrl Up" { ScrollToPreviousPrompt; }
+        bind "Ctrl Down" { ScrollToNextPrompt; }
         bind "m" { SelectCommandAtScrollPosition; }
         bind "n" { Search "down"; }
         bind "p" { Search "up"; }
@@ -275,7 +275,7 @@ web_client {
     font "monospace"
 }
 
-default_layout "tabs-up" // Compact layout with tabs up and keybind tooltips enabled
+// default_layout "tabs-up" // Compact layout with tabs up and keybind tooltips enabled
 theme "kanagawa-custom"
 
 ///////////////////////////////////////////////////////////////////////////
